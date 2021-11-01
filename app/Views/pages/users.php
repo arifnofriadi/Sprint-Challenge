@@ -42,6 +42,10 @@
                     </tr>
 
                 <?php endforeach; ?>
+                <?php else: ?>
+                  <tr>
+                    <td class="px-3 py-3 text-center" colspan="5">No data found.</td>
+                  </tr>
               <?php endif; ?>
 
             </tbody>

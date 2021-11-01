@@ -15,7 +15,7 @@ class PostsModel extends Model
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
     protected $allowedFields        = [
-        'title', 'image', 'description', 'posted_by', 'created_at', 
+        'title', 'image', 'description', 'created_at', 
     ];
 
     // Dates
@@ -41,4 +41,5 @@ class PostsModel extends Model
     protected $afterFind            = [];
     protected $beforeDelete         = [];
     protected $afterDelete          = [];
+
 }

@@ -37,7 +37,14 @@ $routes->get('/register', 'Home::register');
 $routes->group('/admin', ['filter'=>'authGuard'], function($routes){
     $routes->add('','AdminController::index');
     $routes->add('users', 'AdminController::users');
-    $routes->add('posts', 'AdminController::posts');
+    $routes->group('posts', function($routes){
+        $routes->add('', 'AdminController::posts');
+        $routes->add('create', 'AdminController::create');
+        $routes->add('delete/(:num)', 'AdminController::delete/$1');
+        $routes->add('update/(:num)', 'AdminController::updatePage/$1');
+        $routes->post('update/(:num)', 'AdminController::update/$1');
+        $routes->add('view/(:num)', 'AdminController::view/$1');
+    });
 });
 $routes->get('/profile', 'AdminController::profile');
 

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   
-  <title>Control Panel | Sprint Cahallenge</title>
+  <title>Control Panel | Sprint Challenge</title>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Accept-CH" content="DPR,Width,Viewport-Width" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"  />
   
-  
+  <link rel="shortcut icon" href="<?php echo base_url('images/sprint.png') ?>" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url('css/main.css') ?>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head><body class="font-sans">
     
@@ -92,6 +93,19 @@
     body[0].classList.toggle('overflow-hidden')
 
   }
+
+  function onFileUpload(input, id) {
+      id = id || '#ajaxImgUpload';
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $(id).attr('src', e.target.result).width(300)
+          };
+          
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
 </script>
 <!--/ JavaScript -->
   
@@ -100,8 +114,8 @@
     
     </div>
 
-
-<script src="<?php echo base_url('js/app.b9bb701d839f16e8eba0283f8690b8fa8d43487ba675c272dcda04eae758e61a.js') ?>"  defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?php echo base_url('js/app.b9bb701d839f16e8eba0283f8690b8fa8d43487ba675c272dcda04eae758e61a.js') ?>"  defer></script>
 
 </body>
 </html>
